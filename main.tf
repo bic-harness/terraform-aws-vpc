@@ -282,7 +282,7 @@ resource "aws_route" "database_internet_gateway" {
 
   route_table_id         = aws_route_table.database[0].id
   destination_cidr_block = "0.0.0.0/0"
-  gateway_id             = aws_internet_gateway.this[0].id
+  gateway_id             = aws_internet_gateway.this.id
 
   timeouts {
     create = "5m"
@@ -306,7 +306,7 @@ resource "aws_route" "database_ipv6_egress" {
 
   route_table_id              = aws_route_table.database[0].id
   destination_ipv6_cidr_block = "::/0"
-  egress_only_gateway_id      = aws_egress_only_internet_gateway.this[0].id
+  egress_only_gateway_id      = aws_egress_only_internet_gateway.this.id
 
   timeouts {
     create = "5m"
